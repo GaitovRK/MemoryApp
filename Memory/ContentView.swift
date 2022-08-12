@@ -30,16 +30,47 @@ struct CardView: View {
 }
 
 struct CardRow: View {
-    var emojis = ["🐨", "🐰", "🐶"]
+    var emojis = ["🐨", "🐰", "🐶", "🐯", "🐮", "🐷", "🦊", "🐱", "🐹", "🐼", "🐸", "🐵"]
+    @State var emojiCount = 4
 
     var body: some View {
-        HStack {
-            ForEach(emojis, id: \.self, content: { emoji in
-                CardView(content: emoji)
-            })
+        VStack {
+            HStack {
+                ForEach(emojis[0..<emojiCount], id: \.self, content: { emoji in
+                    CardView(content: emoji)
+                })
+            }
+            Spacer()
+            HStack {
+                remove
+                Spacer()
+                add
+            }
+            .padding(.horizontal)
+            .font(.largeTitle)
         }
         .padding(.horizontal)
         .foregroundColor(.red)
+    }
+    
+    var remove: some View {
+        Button {
+            if emojiCount > 1 {
+                emojiCount -= 1
+            }
+        } label: {
+            Image(systemName: "minus.square")
+        }
+    }
+    
+    var add: some View {
+        Button {
+            if emojiCount < emojis.count {
+                emojiCount += 1
+            }
+        } label: {
+            Image(systemName: "plus.app")
+        }
     }
 }
 
@@ -48,9 +79,9 @@ struct ContentView: View {
     var body: some View {
         VStack {
             CardRow()
-            CardRow()
-            CardRow()
-            CardRow()
+//            CardRow()
+//            CardRow()
+//            CardRow()
         }
     }
 }
