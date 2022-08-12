@@ -31,7 +31,7 @@ struct CardView: View {
 
 struct CardRow: View {
     var emojis = ["🐨", "🐰", "🐶", "🐯", "🐮", "🐷", "🦊", "🐱", "🐹", "🐼", "🐸", "🐵", "🐔", "🐧"]
-    @State var emojiCount = 8
+    @State var emojiCount = 10
 
     var body: some View {
         VStack {
