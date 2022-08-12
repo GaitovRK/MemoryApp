@@ -17,7 +17,7 @@ struct CardView: View {
         
         if isFaceUp {
             shape.fill(.white)
-            shape.stroke(lineWidth: 3)
+            shape.strokeBorder(lineWidth: 3)
             Text(content).font(.largeTitle)
         } else {
             shape.fill(.red)
@@ -31,15 +31,19 @@ struct CardView: View {
 
 struct CardRow: View {
     var emojis = ["🐨", "🐰", "🐶", "🐯", "🐮", "🐷", "🦊", "🐱", "🐹", "🐼", "🐸", "🐵"]
-    @State var emojiCount = 4
+    @State var emojiCount = 8
 
     var body: some View {
         VStack {
-            HStack {
-                ForEach(emojis[0..<emojiCount], id: \.self, content: { emoji in
-                    CardView(content: emoji)
-                })
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 75, maximum: 200))]) {
+                    ForEach(emojis[0..<emojiCount], id: \.self, content: { emoji in
+                        CardView(content: emoji).aspectRatio(2/3, contentMode: .fit)
+                    })
+                }
+                .foregroundColor(.red)
             }
+
             Spacer()
             HStack {
                 remove
@@ -50,7 +54,6 @@ struct CardRow: View {
             .font(.largeTitle)
         }
         .padding(.horizontal)
-        .foregroundColor(.red)
     }
     
     var remove: some View {
@@ -107,6 +110,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .preferredColorScheme(.dark)
+            .previewInterfaceOrientation(.portraitUpsideDown)
         ContentView()
 
     }
