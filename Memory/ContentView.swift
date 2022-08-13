@@ -43,38 +43,12 @@ struct CardRow: View {
                 }
                 .foregroundColor(.red)
             }
-
-            Spacer()
-            HStack {
-                remove
-                Spacer()
-                add
-            }
             .padding(.horizontal)
             .font(.largeTitle)
         }
-        .padding(.horizontal)
     }
     
-    var remove: some View {
-        Button {
-            if emojiCount > 1 {
-                emojiCount -= 1
-            }
-        } label: {
-            Image(systemName: "minus.square")
-        }
-    }
     
-    var add: some View {
-        Button {
-            if emojiCount < emojis.count {
-                emojiCount += 1
-            }
-        } label: {
-            Image(systemName: "plus.app")
-        }
-    }
 }
 
 
@@ -82,9 +56,6 @@ struct ContentView: View {
     var body: some View {
         VStack {
             CardRow()
-//            CardRow()
-//            CardRow()
-//            CardRow()
         }
     }
 }
