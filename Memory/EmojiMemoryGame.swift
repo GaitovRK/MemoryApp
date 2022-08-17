@@ -10,4 +10,7 @@ import Foundation
 class EmojiMemoryGame {
     var model: MemoryGame<String>
     
+    var cards: Array<MemoryGame<String>.Card> {
+        return model.cards
+    }
 }
