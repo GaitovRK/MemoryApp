@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 struct MemoryGame<CardContent> {
@@ -16,12 +17,17 @@ struct MemoryGame<CardContent> {
     }
 
     struct Card {
-        var isFaceUp: Bool
-        var isMatched: Bool
+        var isFaceUp: Bool = false
+        var isMatched: Bool = false
         var content: CardContent
     }
+    
+    init(numberOfPairs: Int, createCardContent: (Int) -> CardContent) {
+        for index in 0..<numberOfPairs {
+            let content: CardContent = createCardContent(index)
+            cards.append(Card.init(content: content))
+            cards.append(Card.init(content: content))
 
+        }
+    }
 }
-
-
-

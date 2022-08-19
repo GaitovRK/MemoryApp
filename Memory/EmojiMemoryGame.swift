@@ -8,7 +8,7 @@
 import Foundation
 
 class EmojiMemoryGame {
-    var model: MemoryGame<String>
+    var model = MemoryGame<String>(numberOfPairs: 4, createCardContent: <#T##(Int) -> _#>)
     
     var cards: Array<MemoryGame<String>.Card> {
         return model.cards
