@@ -18,6 +18,9 @@ struct MemoryGame<CardContent> {
 
     
     init(numberOfPairs: Int, createCardContent: (Int) -> CardContent) {
+        cards = Array<Card>()
+        
+        // Adding 2 cards per pair
         for index in 0..<numberOfPairs {
             let content: CardContent = createCardContent(index)
             cards.append(Card(content: content, id: index * 2))
@@ -27,7 +30,7 @@ struct MemoryGame<CardContent> {
     
     
     struct Card: Identifiable {
-        var isFaceUp: Bool = false
+        var isFaceUp: Bool = true
         var isMatched: Bool = false
         var content: CardContent
         var id: Int
