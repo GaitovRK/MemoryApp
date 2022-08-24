@@ -12,16 +12,10 @@ import SwiftUI
 struct MemoryGame<CardContent> {
     private(set) var cards: Array<Card>
     
-    func choose(_ : Card) {
+    func choose(_ card: Card) {
         
     }
 
-    struct Card: Identifiable {
-        var isFaceUp: Bool = false
-        var isMatched: Bool = false
-        var content: CardContent
-        var id: Int
-    }
     
     init(numberOfPairs: Int, createCardContent: (Int) -> CardContent) {
         for index in 0..<numberOfPairs {
@@ -29,5 +23,13 @@ struct MemoryGame<CardContent> {
             cards.append(Card(content: content, id: index * 2))
             cards.append(Card(content: content, id: index * 2 + 1))
         }
+    }
+    
+    
+    struct Card: Identifiable {
+        var isFaceUp: Bool = false
+        var isMatched: Bool = false
+        var content: CardContent
+        var id: Int
     }
 }
