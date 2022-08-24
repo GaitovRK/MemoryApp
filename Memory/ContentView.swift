@@ -63,12 +63,12 @@ struct ContentView: View {
 
 
 struct ContentView_Previews: PreviewProvider {
-    let game = EmojiMemoryGame()
     static var previews: some View {
-        ContentView(game: EmojiMemoryGame)
+        let game = EmojiMemoryGame()
+        ContentView(game: game)
             .preferredColorScheme(.dark)
             .previewInterfaceOrientation(.portraitUpsideDown)
-        ContentView(game: EmojiMemoryGame)
+        ContentView(game: game)
 
     }
 }

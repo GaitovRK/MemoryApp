@@ -8,12 +8,16 @@
 import Foundation
 
 class EmojiMemoryGame {
-    var emojis = ["🐨", "🐰", "🐶", "🐯", "🐮", "🐷", "🦊", "🐱", "🐹", "🐼", "🐸", "🐵", "🐔", "🐧", "🐡", "🪲", "🐠", "🐊", "🦬", "🐿"]
+    static var emojis = ["🐨", "🐰", "🐶", "🐯", "🐮", "🐷", "🦊", "🐱", "🐹", "🐼", "🐸", "🐵", "🐔", "🐧", "🐡", "🪲", "🐠", "🐊", "🦬", "🐿"]
     
     
-    var model = MemoryGame<String>(numberOfPairs: 4) { <#Int#> in
-        <#code#>
+    static func createMemoryGame() -> MemoryGame<String> {
+        MemoryGame<String>(numberOfPairs: 4) { index in
+            emojis[index]
+        }
     }
+    
+    var model = createMemoryGame()
     
     var cards: Array<MemoryGame<String>.Card> {
         model.cards

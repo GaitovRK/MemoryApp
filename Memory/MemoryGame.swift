@@ -28,7 +28,6 @@ struct MemoryGame<CardContent> {
             let content: CardContent = createCardContent(index)
             cards.append(Card(content: content, id: index * 2))
             cards.append(Card(content: content, id: index * 2 + 1))
-
         }
     }
 }
