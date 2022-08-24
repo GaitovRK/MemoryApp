@@ -8,9 +8,14 @@
 import Foundation
 
 class EmojiMemoryGame {
-    var model = MemoryGame<String>(numberOfPairs: 4, createCardContent: <#T##(Int) -> _#>)
+    var emojis = ["🐨", "🐰", "🐶", "🐯", "🐮", "🐷", "🦊", "🐱", "🐹", "🐼", "🐸", "🐵", "🐔", "🐧", "🐡", "🪲", "🐠", "🐊", "🦬", "🐿"]
+    
+    
+    var model = MemoryGame<String>(numberOfPairs: 4) { <#Int#> in
+        <#code#>
+    }
     
     var cards: Array<MemoryGame<String>.Card> {
-        return model.cards
+        model.cards
     }
 }
